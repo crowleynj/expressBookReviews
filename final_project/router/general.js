@@ -115,8 +115,8 @@ public_users.get('/async-get-book-by-title/:title',function (req, res) {
 //  Get book review
 public_users.get('/review/:isbn',function (req, res) {
     const isbnRequested = req.params.isbn;
-    const result = Object.values(books).filter(item => item.isbn === isbnRequested);
-    res.end(JSON.stringify(result[0].reviews), null, 4); 
+    const result = books[isbnRequested];
+    res.end(JSON.stringify(result.reviews), null, 4);
 });
 
 module.exports.general = public_users;
